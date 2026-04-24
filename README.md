@@ -53,18 +53,19 @@ Para validar el funcionamiento, crea una regla simple que detecte pings (ICMP):
   - Añade la siguiente línea: alert icmp any any -> $HOME_NET any (msg:"ICMP Test Detectado"; sid:1000001; rev:1;)
   - Guarda y asegúrate de que esta línea esté activa en snort.conf buscando include $RULE_PATH/local.rules.
 
-Reglas ejemplo:
-
+  Reglas ejemplo:
+````
 #:wq!:Detectar Nmap ICMP Ping (-sn o -sP):
 alert icmp any any -> $HOME_NET any (msg:"Nmap ICMP Ping detectado"; itype:8; sid:1000004; rev:1;)
-
-Si no toma el valor de la variable tambien lo puedes definir directamente
+````
+  Si no toma el valor de la variable tambien lo puedes definir directamente
+````
 #:wq!:Detectar Nmap ICMP Ping (-sn o -sP):
 alert icmp any any -> 192.168.8.25/32 any (msg:"Nmap ICMP Ping detectado"; itype:8; sid:1000004; rev:1;)
+````
+  Asi se deberia ver
 
-Asi se deberia ver
-
-<img width="902" height="298" alt="image" src="https://githenp0s8ub.com/user-attachments/assets/e0d4c72e-166b-43be-be05-d37353960f27" />
+<img width="903" height="299" alt="Captura de pantalla 2026-04-24 160159" src="https://github.com/user-attachments/assets/6b39973b-1d11-498e-879d-61d4aacf38c6" />
 
 4. Validación del Funcionamiento
 Para confirmar que Snort está detectando tráfico correctamente, sigue estos pasos:
